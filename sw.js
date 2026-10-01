@@ -2,7 +2,7 @@
    Cachea SOLO archivos públicos de la app (HTML, íconos, manifest, librería y fuentes).
    Nunca toca peticiones a Supabase (*.supabase.co): tus datos privados no pasan por aquí.
    Sube la versión (V) cuando publiques cambios importantes. */
-const V = 'ritmo-v1.96.0';
+const V = 'ritmo-v1.97.0';
 const CORE = ['./', './index.html', './config.js', './manifest.webmanifest', './icon.svg', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png', './mascota.png'];
 const PUBLIC_HOSTS = ['cdn.jsdelivr.net', 'fonts.googleapis.com', 'fonts.gstatic.com'];
 

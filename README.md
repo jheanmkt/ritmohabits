@@ -67,9 +67,10 @@ Llegan mientras Ritmo está abierta (aunque sea en otra pestaña o en segundo pl
 - Recordatorios y gestión completa de tareas siguen accesibles desde Tiempo.
 - No se modificó el esquema ni la configuración de Supabase.
 
-## v1.96 · Mascota: carga robusta y modo ligero
-- three.js y el modelo ahora van **dentro del proyecto** (`vendor/`, `mascota-glb.js`): no dependen de un CDN y funcionan también abriendo `index.html` desde el disco. El CDN queda solo como respaldo.
-- Si el 3D no puede arrancar (sin WebGL, GPU bloqueada, archivo que no carga, contexto perdido), la mascota pasa sola al **modo ligero** (`mascota-sprites.js`: imágenes pre-renderizadas del mismo modelo recoloreadas en canvas 2D). Los colores, los accesorios y las animaciones funcionan igual; la hoja de personalización explica el motivo.
-- El motivo del fallo también queda en la consola del navegador (`[Ritmo] 3D no disponible…`).
-- Los botones "Ver animaciones" esperan a que la mascota cargue y luego animan.
-- No se modificó Supabase, Auth, `config.js` ni `schema.sql`.
+## v1.97 · Mascota con esqueleto y 10 animaciones
+- El modelo ahora trae un **esqueleto de 11 huesos** (raíz, cadera, torso, cabeza, 2 hojas, 2 brazos, mochila, 2 piernas) con pesos de piel calculados sobre la malla (`mascota.glb` / `mascota-glb.js`).
+- **Animaciones:** saludar, saltar, correr, caminar, bailar, aplaudir, celebrar (doble salto con giro), dormir, pensar y sorpresa, más el reposo (respira, mueve brazos, hojas y cabeza).
+- Qué dispara cada una: marcar un hábito → saltar · completar el día → celebrar · tocar a Brote → una al azar · cada ~20 s sin tocar → saluda · botones de "Ver animaciones" en Personalizar.
+- Los accesorios (lentes, flor, bufanda) van pegados a la cabeza o al torso y se mueven con ellos.
+- **Todo sale de un solo archivo de datos** (`mascota-anims.js`, ya incluido dentro de `index.html`): para agregar un movimiento nuevo solo se añade una entrada, sin tocar el modelo. Ver `ritmo-mascota-fuentes.zip`.
+- Modo ligero (sin 3D): imita cada movimiento con el cuerpo entero (salto, balanceo, rebote…); no mueve brazos ni piernas por separado.
